@@ -1,0 +1,144 @@
+<div>
+  <mat-card style="height: 50px">
+    <div style="float: right">
+      <mat-form-field>
+        <input matInput [matDatepicker]="startingDate" placeholder="Starting Date">
+        <mat-datepicker-toggle matSuffix [for]="startingDate"></mat-datepicker-toggle>
+        <mat-datepicker #startingDate></mat-datepicker>
+      </mat-form-field>
+      &nbsp; &nbsp;
+      <mat-form-field>
+        <input matInput [matDatepicker]="endingDate" placeholder="Ending Date">
+        <mat-datepicker-toggle matSuffix [for]="endingDate"></mat-datepicker-toggle>
+        <mat-datepicker #endingDate></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </mat-card>
+</div>
+<div class="container">
+  <mat-card class="box" id="pending">
+
+    <mat-form-field appearance="fill" style="width: 100%">
+      <!-- <mat-label>Search a task</mat-label> -->
+      <input matInput placeholder="Search">
+    </mat-form-field>
+
+    <mat-card-header>
+      <mat-card-title>
+        Pending
+      </mat-card-title>
+    </mat-card-header>
+
+    <mat-card class="box-card pointer">
+      <mat-card-header>
+        <div mat-card-avatar class="avatar">
+          <i class="material-icons">
+            fastfood
+          </i>
+        </div>
+        <mat-card-title>
+          Work complete today
+        </mat-card-title>
+        <mat-card-subtitle>
+          #work #sanjay
+        </mat-card-subtitle>
+
+
+      </mat-card-header>
+      <mat-card-content>
+        Complete this shit by today
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi perferendis, quasi obcaecati aspernatur iure
+        sequi
+        dolor porro? Eos officiis amet libero accusantium, eius vel adipisci tempora non unde consequuntur quasi!
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button color="primary">Edit</button>
+        <button mat-button color="warn">Complete</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="box-card pointer">
+      <mat-card-content>
+        Complete this shit by today
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button color="primary">Edit</button>
+        <button mat-button color="warn">Complete</button>
+      </mat-card-actions>
+    </mat-card>
+
+
+    <mat-card class="box-card pointer">
+      <mat-card-content>
+        Complete this shit by today
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi perferendis, quasi obcaecati aspernatur iure
+        sequi
+        dolor porro? Eos officiis amet libero accusantium, eius vel adipisci tempora non unde consequuntur quasi!
+
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime sunt accusamus esse magnam dolor cum quidem
+        recusandae deserunt itaque. Neque aperiam ipsum quia repudiandae repellendus quas delectus nihil adipisci
+        totam!
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button color="primary">Edit</button>
+        <button mat-button color="warn">Complete</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <mat-card class="box-card pointer">
+      <mat-card-content>
+        Complete this shit by today
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nisi perferendis, quasi obcaecati aspernatur iure
+        sequi
+        dolor porro? Eos officiis amet libero accusantium, eius vel adipisci tempora non unde consequuntur quasi!
+
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime sunt accusamus esse magnam dolor cum quidem
+        recusandae deserunt itaque. Neque aperiam ipsum quia repudiandae repellendus quas delectus nihil adipisci
+        totam!
+
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, praesentium? Perspiciatis animi dolores, nulla
+        vero reiciendis aperiam fugiat. Eum assumenda sint excepturi id? Iste deserunt expedita corporis qui sit quos.
+
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Labore fugiat repellendus corrupti? Quaerat sunt
+        placeat expedita, laboriosam libero atque temporibus, debitis fugit rerum quo dolorem repellat quisquam quae
+        aperiam voluptatem.
+
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-button color="primary">Edit</button>
+        <button mat-button color="warn">Complete</button>
+      </mat-card-actions>
+    </mat-card>
+
+    <!-- <mat-form-field style="width: 100%">
+      <input matInput type="text" placeholder="Add a TODO">
+    </mat-form-field> -->
+  </mat-card>
+
+  <mat-card class="box" id="completed">
+    <mat-form-field appearance="fill" style="width: 100%">
+      <!-- <mat-label>Search a task</mat-label> -->
+      <input matInput placeholder="Search">
+    </mat-form-field>
+    <mat-card-header>
+      <mat-card-title>
+        Completed
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+
+  <mat-card class="box" id="overdue">
+    <mat-form-field appearance="fill" style="width: 100%">
+      <!-- <mat-label>Search a task</mat-label> -->
+      <input matInput placeholder="Search">
+    </mat-form-field>
+    <mat-card-header>
+      <mat-card-title>
+        Overdue
+      </mat-card-title>
+    </mat-card-header>
+  </mat-card>
+</div>
