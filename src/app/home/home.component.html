@@ -3,17 +3,17 @@
     [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item href="#" title="Add new Task" (mouseover)="onMouseOverAddIcon()" (mouseout)="onMouseOutOfAddIcon()">
+      <a mat-list-item routerLink="/new"  title="Add new Task" (mouseover)="onMouseOverAddIcon()" (mouseout)="onMouseOutOfAddIcon()">
         <i class="material-icons">
           {{ addIcon }}
         </i>
       </a>
-      <a mat-list-item href="#" title="Home">
+      <a mat-list-item routerLink="" title="Home">
         <i class="material-icons">
           dashboard
         </i>
       </a>
-      <a mat-list-item href="#" title="Settings">
+      <a mat-list-item title="Settings">
         <i class="material-icons">
           settings
         </i>

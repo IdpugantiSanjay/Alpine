@@ -17,21 +17,27 @@ import {
   MatMenuModule,
   MatDatepickerModule,
   MAT_DATE_LOCALE,
-  MatNativeDateModule
+  MatNativeDateModule, MatSelectModule, MatRadioModule
 } from '@angular/material';
 
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CardComponent } from './card/card.component';
+import { NewCardComponent } from './new-card/new-card.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent }
+  { path: '', component: DashboardComponent },
+  { path: 'new', component: NewCardComponent }
 ];
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    DashboardComponent
+    DashboardComponent,
+    CardComponent,
+    NewCardComponent
   ],
   imports: [
     BrowserModule,
@@ -46,10 +52,14 @@ const routes: Routes = [
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    FormsModule,
     MatMenuModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    MatSelectModule,
+    MatRadioModule,
+    ReactiveFormsModule
   ],
   providers: [
     MatDatepickerModule,

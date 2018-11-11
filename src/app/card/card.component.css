@@ -1,0 +1,22 @@
+.avatar {
+    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+    background-size: cover;
+  }
+
+.box-card {
+    margin-top: 2.5%;
+    margin-bottom: 2.5%
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.with-icon {
+    display: flex;
+    align-items: center;
+}
+
+.created-on {
+    font-size: 12px; color: black
+}
