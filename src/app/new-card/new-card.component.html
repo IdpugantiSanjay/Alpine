@@ -11,6 +11,18 @@
       <mat-form-field class="example-full-width">
         <textarea matInput placeholder="Description" style="resize: none"></textarea>
       </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Tags">
+      </mat-form-field>
+
+      <button mat-button color="primary" style="margin: 0 auto; display: block;">Submit</button>
     </form>
 
   </mat-card>
