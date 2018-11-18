@@ -12,17 +12,20 @@ export class RequestCamelCaseToSnakeCaseService implements HttpInterceptor {
   constructor() { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<any> {
+    const caseConvertedRequest = req.clone({
+      body: decamelizeKeys(req.body),
+      params: this.urlParams(req.params)
+    });
 
-    if (event instanceof HttpRequest) {
-      const caseConvertedRequest = req.clone({
-        body: decamelizeKeys(req.body),
-        params: new HttpParams({ fromObject: decamelizeKeys(req.params) as any }),
-      });
+    return next.handle(caseConvertedRequest);
 
-      return next.handle(caseConvertedRequest);
-    }
 
-    return next.handle(req);
+  }
 
+
+  private urlParams(params: HttpParams): HttpParams {
+    const paramObject = {};
+    params.keys().forEach(key => paramObject[key] = params.get(key));
+    return new HttpParams({ fromObject: decamelizeKeys(paramObject) as any });
   }
 }

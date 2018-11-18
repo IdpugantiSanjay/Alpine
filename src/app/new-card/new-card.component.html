@@ -3,26 +3,34 @@
 
   <mat-card style="padding: 2%">
 
-    <form class="example-form">
+    <mat-card-header>
+      <mat-card-title>
+        Add New Task
+      </mat-card-title>
+    </mat-card-header>
+
+    <form class="example-form" [formGroup]="addNewTaskForm">
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Title" autofocus>
+        <input matInput placeholder="Title" autofocus formControlName="title">
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <textarea matInput placeholder="Description" style="resize: none"></textarea>
+        <textarea matInput placeholder="Description" style="resize: none" formControlName="description"></textarea>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput [matDatepicker]="picker" placeholder="Choose deadline date">
+        <input matInput [matDatepicker]="picker" placeholder="Deadline" formControlName="deadline">
         <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
       </mat-form-field>
 
       <mat-form-field class="example-full-width">
-        <input matInput placeholder="Tags">
+        <mat-label>Tags</mat-label>
+        <input matInput placeholder="#work #groceries" formControlName="tags">
       </mat-form-field>
 
-      <button mat-stroked-button color="warn" style="margin: 0 auto; display: block;">Submit</button>
+      <button [disabled]="!addNewTaskForm.valid" type="submit" mat-stroked-button color="warn" style="margin: 0 auto; display: block;"
+        (click)="onSubmitButtonClickEvent()">Submit</button>
     </form>
 
   </mat-card>

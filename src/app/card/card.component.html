@@ -5,12 +5,12 @@
         work
       </i>
     </div>
-    <mat-card-title>
-      Work complete today
+    <mat-card-title [innerHTML]="title">
+      
     </mat-card-title>
     <mat-card-subtitle>
-      <div class="with-icon">
-        #work #sanjay
+      <div class="with-icon" [innerHTML]="tags">
+        
       </div>
     </mat-card-subtitle>
     <mat-card-subtitle class="bold">
@@ -19,7 +19,7 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
-    Complete this shit by today
+    {{ description }}
   </mat-card-content>
 
   <mat-card-actions>
