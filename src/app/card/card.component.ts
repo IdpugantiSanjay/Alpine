@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-card',
@@ -14,9 +14,19 @@ export class CardComponent implements OnInit {
   @Input('createdDate') createdDate: string;
   @Input('tags') tags: string;
 
+  @Input('id')
+  taskId: string;
+
+  @Output('delete')
+  deleteEvent = new EventEmitter<string>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  public onDeleteButtonClickEvent() {
+    this.deleteEvent.emit(this.taskId);
   }
 
 }

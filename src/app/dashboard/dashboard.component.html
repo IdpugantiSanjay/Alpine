@@ -13,12 +13,14 @@
 
     <mat-card-content>
       <ng-container *ngFor="let task of tasks | async">
-        <app-card 
+        <app-card
+          [id]="task.id"
           [title]="task.title" 
           [description]="task.description" 
           [createdDate]="task.createdDate" 
           [tags]="task.tags"
           [deadline]="task.deadline"
+          (delete)="onTaskDeleteEvent($event)"
           >
         </app-card>
       </ng-container>

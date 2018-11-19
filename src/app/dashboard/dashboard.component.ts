@@ -34,4 +34,12 @@ export class DashboardComponent implements OnInit {
       .subscribe();
   }
 
+  onTaskDeleteEvent(taskId: string) {
+    this.taskService.deleteTask(taskId)
+      .pipe(
+        switchMap(() => this.tasks = this.taskService.tasks())
+      )
+      .subscribe();
+  }
+
 }

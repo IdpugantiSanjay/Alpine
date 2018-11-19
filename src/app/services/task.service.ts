@@ -23,4 +23,10 @@ export class TaskService {
     }
     return this.httpService.getRequest<Task[]>(`${environment.url}/${this.username}/tasks`);
   }
+
+
+  public deleteTask(taskId: string): Observable<boolean> {
+    return this.httpService
+      .deleteRequest<boolean>(`${environment.url}/${this.username}/tasks/${taskId}`);
+  }
 }
