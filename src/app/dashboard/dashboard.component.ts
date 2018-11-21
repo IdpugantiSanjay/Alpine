@@ -5,6 +5,7 @@ import { Task } from '../interfaces/task';
 import { FormGroup, FormControl } from '@angular/forms';
 import { debounceTime, switchMap, share, shareReplay, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { TaskStatus } from '../enums/task-status.enum';
 
 
 @Component({
@@ -21,10 +22,12 @@ export class DashboardComponent implements OnInit {
 
   tasks: Observable<Task[]>;
 
+  completedTasks: Observable<Task[]>;
+
   constructor(private taskService: TaskService) { }
 
   ngOnInit() {
-    this.tasks = this.taskService.tasks();
+    this.populate();
 
     this.searchTasksForm.controls['searchField'].valueChanges
       .pipe(
@@ -32,7 +35,7 @@ export class DashboardComponent implements OnInit {
         debounceTime(1000),
         share(),
         // return list of tasks which contains search strings
-        switchMap(value => this.tasks = this.taskService.tasks(value)),
+        tap(value => this.tasks = this.taskService.tasks(value)),
       )
       .subscribe();
   }
@@ -45,9 +48,23 @@ export class DashboardComponent implements OnInit {
     this.taskService.deleteTask(taskId)
       .pipe(
         // after deleting the task call task list again to display latest data
-        switchMap(() => this.tasks = this.taskService.tasks())  
+        tap(() => this.populate())  
       )
       .subscribe();
+  }
+
+  onTaskCompleteEvent(taskId: string) {
+    this.taskService
+      .changeTaskStatus(taskId, TaskStatus.Completed)
+      .pipe(
+        tap(() => this.populate())
+      )
+      .subscribe();
+  }
+
+  private populate() {
+    this.tasks = this.taskService.tasks();
+    this.completedTasks = this.taskService.completedTasks();
   }
 
 }

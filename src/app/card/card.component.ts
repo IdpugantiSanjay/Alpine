@@ -17,8 +17,14 @@ export class CardComponent implements OnInit {
   @Input('id')
   taskId: string;
 
+  @Input('showActions')
+  showActions: boolean = true;
+
   @Output('delete')
   deleteEvent = new EventEmitter<string>();
+
+  @Output('complete')
+  completeEvent = new EventEmitter<string>();
 
   constructor() { }
 
@@ -27,6 +33,10 @@ export class CardComponent implements OnInit {
 
   public onDeleteButtonClickEvent() {
     this.deleteEvent.emit(this.taskId);
+  }
+
+  public onCompleteButtonClickEvent() {
+    this.completeEvent.emit(this.taskId);
   }
 
 }
