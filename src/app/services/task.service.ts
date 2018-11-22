@@ -36,8 +36,12 @@ export class TaskService {
       .putRequest(`${environment.url}/${this.username}/tasks/${taskId}`, { taskStatus });
   }
 
-  public completedTasks(): Observable<Task[]> {
+  public completedTasks(searchText?: string): Observable<Task[]> {
+    if (searchText) {
+      return this.httpService
+        .getRequest<Task[]>(`${environment.url}/${this.username}/tasks`, { statusId: TaskStatus.Completed, searchText });
+    } 
     return this.httpService
-      .getRequest<Task[]>(`${environment.url}/${this.username}/tasks`, { statusId: TaskStatus.Completed });
+        .getRequest<Task[]>(`${environment.url}/${this.username}/tasks`, { statusId: TaskStatus.Completed });
   }
 }

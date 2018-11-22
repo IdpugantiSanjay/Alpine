@@ -1,8 +1,8 @@
-<div class="container">
+<div class="container" [formGroup]="searchTasksForm">
   <mat-card class="box pending">
 
-    <mat-form-field appearance="fill" style="width: 100%" [formGroup]="searchTasksForm">
-      <input matInput placeholder="Search" formControlName="searchField">
+    <mat-form-field appearance="fill" style="width: 100%" >
+      <input matInput placeholder="Search" formControlName="pendingTasksSearchField">
     </mat-form-field>
 
     <mat-card-header>
@@ -26,19 +26,11 @@
         </app-card>
       </ng-container>
     </mat-card-content>
-
-
-
-
-    <!-- <mat-form-field style="width: 100%">
-      <input matInput type="text" placeholder="Add a TODO">
-    </mat-form-field> -->
   </mat-card>
 
   <mat-card class="box completed">
     <mat-form-field appearance="fill" style="width: 100%">
-      <!-- <mat-label>Search a task</mat-label> -->
-      <input matInput placeholder="Search">
+      <input matInput placeholder="Search" formControlName="completedTasksSearchField">
     </mat-form-field>
     <mat-card-header>
       <mat-card-title>

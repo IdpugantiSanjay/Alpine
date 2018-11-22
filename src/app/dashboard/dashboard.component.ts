@@ -17,7 +17,8 @@ export class DashboardComponent implements OnInit {
 
 
   searchTasksForm = new FormGroup({
-    searchField: new FormControl('')
+    pendingTasksSearchField: new FormControl(''),
+    completedTasksSearchField: new FormControl(''),
   });
 
   tasks: Observable<Task[]>;
@@ -29,14 +30,21 @@ export class DashboardComponent implements OnInit {
   ngOnInit() {
     this.populate();
 
-    this.searchTasksForm.controls['searchField'].valueChanges
+    this.searchTasksForm.controls['pendingTasksSearchField'].valueChanges
       .pipe(
         // wait for 1 second after user types
-        debounceTime(1000),
+        debounceTime(500),
         share(),
         // return list of tasks which contains search strings
         tap(value => this.tasks = this.taskService.tasks(value)),
       )
+      .subscribe();
+    
+      this.searchTasksForm.controls['completedTasksSearchField'].valueChanges
+        .pipe(
+          debounceTime(500),
+          tap(value => this.completedTasks = this.taskService.completedTasks(value))
+        )
       .subscribe();
   }
 
