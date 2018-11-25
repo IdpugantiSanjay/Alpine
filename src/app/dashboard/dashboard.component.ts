@@ -13,6 +13,7 @@ import { debounceTime, switchMap, share, shareReplay, tap } from 'rxjs/operators
 })
 export class DashboardComponent implements OnInit {
 
+  showNewCardField = false;
 
   searchTasksForm = new FormGroup({
     searchField: new FormControl('')

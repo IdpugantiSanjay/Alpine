@@ -29,6 +29,7 @@ import { RequestCamelCaseToSnakeCaseService } from './shared/request-camel-case-
 import { ResponseSnakeCaseToCamelCaseService } from './shared/response-snake-case-to-camel-case.service';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpService } from './shared/http.service';
+import { CardListComponent } from './card-list/card-list.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -41,7 +42,8 @@ const routes: Routes = [
     HomeComponent,
     DashboardComponent,
     CardComponent,
-    NewCardComponent
+    NewCardComponent,
+    CardListComponent
   ],
   imports: [
     FormsModule,

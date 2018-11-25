@@ -1,0 +1,11 @@
+
+
+.add-card {
+    color: gray;
+    cursor: pointer;
+    /* padding: 4% 4%; */
+}
+
+.add-card:hover {
+    text-decoration: underline;
+}
