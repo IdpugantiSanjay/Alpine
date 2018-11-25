@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormGroup, FormControl, ValidationErrors, AbstractControl } from '@angular/forms';
 import { TaskService } from '../services/task.service';
 import { Task } from '../interfaces/task';
-import { distinctUntilChanged, debounceTime } from 'rxjs/operators';
+import { distinctUntilChanged, debounceTime, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new-card',
@@ -21,7 +22,7 @@ export class NewCardComponent implements OnInit {
     tags: this.tags,
   });
 
-  constructor(private taskService: TaskService) { }
+  constructor(private taskService: TaskService, private router: Router) { }
 
 
   onSubmitButtonClickEvent() {
@@ -29,7 +30,11 @@ export class NewCardComponent implements OnInit {
     const task = this.addNewTaskForm.value as Task;
     // (task as any).someRandomUnrelatedShit = '';
 
-    this.taskService.addTask(task).subscribe();
+    this.taskService.addTask(task)
+      .pipe(
+        switchMap(() => this.router.navigateByUrl(''))
+      )
+      .subscribe();
   }
 
   ngOnInit() {

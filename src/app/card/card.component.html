@@ -22,8 +22,8 @@
     {{ description }}
   </mat-card-content>
 
-  <mat-card-actions>
-    <button mat-button color="primary">Edit</button>
-    <button mat-button color="warn">Complete</button>
+  <mat-card-actions *ngIf="showActions">
+    <button mat-button color="accent" (click)="onCompleteButtonClickEvent()">Complete</button>
+    <button mat-button color="warn" (click)="onDeleteButtonClickEvent()">Delete</button>
   </mat-card-actions>
 </mat-card>
