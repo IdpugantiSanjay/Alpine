@@ -1,0 +1,10 @@
+<div mat-dialog-content>
+  <p>Enter the name of container</p>
+  <mat-form-field>
+    <input matInput [(ngModel)]="containerName" cdkFocusInitial (keyup.enter)="onOkButtonClick()" maxlength="28">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onOkButtonClick()" >Ok</button>
+  <button mat-button (click)="onCancelButtonClick()">Cancel</button>
+</div>

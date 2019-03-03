@@ -4,26 +4,38 @@
     <input matInput placeholder="Search">
   </mat-form-field>
 
-  <mat-card-header>
-    <mat-card-title [innerHTML]="listName"></mat-card-title>
-  </mat-card-header>
+  <!--for header center alignement-->
+  <!--<mat-card-header>
+    <div id="containerName">
+      <mat-card-title [innerHTML]="containerInfo.name"></mat-card-title>
+    </div>
+  </mat-card-header>-->
+
+  <!--for header left alignment-->
+  <div id="containerName">
+    <mat-card-title [innerHTML]="containerInfo.name"></mat-card-title>
+  </div>
 
   <mat-card-content>
     <ng-container *ngFor="let card of cards | async">
-      <card
-       [title]="card.title"
-      ></card>
+      <card [title]="card.title"></card>
     </ng-container>
 
-    <a class="add-card" (click)="showNewCardField = true" *ngIf="!showNewCardField">+ Add a card</a>
+    <div style="vertical-align: central">
+      <a class="add-card" (click)="showNewCardField = true" *ngIf="!showNewCardField">+ Add a card</a>
+      <i class="material-icons" style="cursor: pointer; float: right" (click)="deleteContainer()">
+        delete_sweep
+      </i>
+
+    </div>
     <ng-container *ngIf="showNewCardField">
-        <mat-card style="height: 100px;" >
-          <textarea matInput placeholder="Enter a title for this card" style="resize: none; height: 60%;"></textarea>
-          <mat-card-actions>
-            <button mat-button color="primary">Add card</button>
-            <button mat-button (click)="showNewCardField = false"><i class="material-icons">close</i></button>
-          </mat-card-actions>
-        </mat-card>
+      <mat-card style="height: 100px;">
+        <textarea matInput placeholder="Enter a title for this card" style="resize: none; height: 60%;"></textarea>
+        <mat-card-actions>
+          <button mat-button color="primary">Add card</button>
+          <button mat-button (click)="showNewCardField = false"><i class="material-icons">close</i></button>
+        </mat-card-actions>
+      </mat-card>
     </ng-container>
   </mat-card-content>
 </mat-card>

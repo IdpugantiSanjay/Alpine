@@ -1,10 +1,10 @@
 .container {
-    margin: 0 auto;
-    padding: 1%;
-    display: flex;
-    align-items: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
+  margin: 0 auto;
+  padding: 1%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 /* 
 .align-with-material-icon {
@@ -14,59 +14,62 @@
 } */
 
 .with-icon {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .created-on {
-    font-size: 12px; color: black
+  font-size: 12px;
+  color: black
 }
 
 .box {
-    /* width: 33%; */
-    flex: 1;
-    margin: 1%;
-    height: 70%;
-    background: whitesmoke;
-    /* overflow: auto; */
+  /* width: 33%; */
+  flex: 1;
+  margin: 1%;
+  height: 70%;
+  background: whitesmoke;
+  max-width: 27%;
+  min-width: 250px;
+  /* overflow: auto; */
 }
 
-.box > .pending {
+  .box > .pending {
     flex-shrink: 0;
-}
+  }
 
-.box > .completed {
+  .box > .completed {
     flex-shrink: 1;
-}
+  }
 
 
-.box > .overdue {
+  .box > .overdue {
     flex-shrink: 1;
-}
+  }
 
 .box-card {
-    margin-top: 2.5%;
-    margin-bottom: 2.5%
+  margin-top: 2.5%;
+  margin-bottom: 2.5%
 }
 
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .avatar {
-    /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
-    background-size: cover;
+  /* background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg'); */
+  background-size: cover;
 }
 
 .add-card {
-    color: gray;
-    cursor: pointer;
-    /* padding: 4% 4%; */
+  color: gray;
+  cursor: pointer;
+  /* padding: 4% 4%; */
 }
 
-.add-card:hover {
+  .add-card:hover {
     text-decoration: underline;
-}
+  }
 /* 
 .highlight {
     height: 30px;
@@ -78,28 +81,28 @@
 } */
 
 .add-card {
-    border-radius: 0 0 3px 3px;
-    color: #6b808c;
-    display: block;
-    flex: 0 0 auto;
-    padding: 8px;
-    position: relative;
-    text-decoration: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  border-radius: 0 0 3px 3px;
+  color: #6b808c;
+  display: block;
+  flex: 0 0 auto;
+  padding: 8px;
+  position: relative;
+  text-decoration: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .textarea {
-    background: white;
-    border: none;
-    box-shadow: none;
-    height: auto;
-    /* margin-bottom: 4px;
+  background: white;
+  border: none;
+  box-shadow: none;
+  height: auto;
+  /* margin-bottom: 4px;
     max-height: 162px;
     min-height: 54px; */
-    overflow-y: auto;
-    padding: 0;
-    resize: none;
+  overflow-y: auto;
+  padding: 0;
+  resize: none;
 }
