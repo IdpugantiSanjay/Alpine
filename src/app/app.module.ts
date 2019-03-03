@@ -25,8 +25,6 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CardComponent } from './card/card.component';
 import { NewCardComponent } from './new-card/new-card.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-import { RequestCamelCaseToSnakeCaseService } from './shared/request-camel-case-to-snake-case.service';
-import { ResponseSnakeCaseToCamelCaseService } from './shared/response-snake-case-to-camel-case.service';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpService } from './shared/http.service';
 import { CardListComponent } from './card-list/card-list.component';
@@ -72,8 +70,6 @@ const routes: Routes = [
   providers: [
     MatDatepickerModule,
     { provide: MAT_DATE_LOCALE, useValue: 'en-GB' },
-    { provide: HTTP_INTERCEPTORS, useClass: RequestCamelCaseToSnakeCaseService, multi: true },
-    { provide: HTTP_INTERCEPTORS, useClass: ResponseSnakeCaseToCamelCaseService, multi: true },
     HttpClient,
     HttpService,
   ],
