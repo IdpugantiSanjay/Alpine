@@ -20,7 +20,8 @@ import {
   MatNativeDateModule,
   MatSelectModule,
   MatRadioModule,
-  MatProgressSpinnerModule
+  MatProgressSpinnerModule,
+  MatDialogModule
 } from '@angular/material';
 
 import { Routes, RouterModule } from '@angular/router';
@@ -31,11 +32,21 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { HttpService } from './shared/http.service';
 import { CardListComponent } from './card-list/card-list.component';
+import { EnterContainerNamePopupComponent } from './enter-container-name-popup/enter-container-name-popup.component';
 
 const routes: Routes = [{ path: '', component: DashboardComponent }, { path: 'new', component: NewCardComponent }];
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, DashboardComponent, CardComponent, NewCardComponent, CardListComponent],
+  entryComponents: [EnterContainerNamePopupComponent],
+  declarations: [
+    AppComponent,
+    HomeComponent,
+    DashboardComponent,
+    CardComponent,
+    NewCardComponent,
+    CardListComponent,
+    EnterContainerNamePopupComponent
+  ],
   imports: [
     FormsModule,
     BrowserModule,
@@ -58,7 +69,8 @@ const routes: Routes = [{ path: '', component: DashboardComponent }, { path: 'ne
     MatRadioModule,
     ReactiveFormsModule,
     HttpClientModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDialogModule
   ],
   providers: [MatDatepickerModule, { provide: MAT_DATE_LOCALE, useValue: 'en-GB' }, HttpClient, HttpService],
   bootstrap: [AppComponent]

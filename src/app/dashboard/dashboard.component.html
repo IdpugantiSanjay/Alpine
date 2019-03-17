@@ -1,4 +1,11 @@
 <div class="container">
-  <card-list class="box" [listName]="'Sanjay'"></card-list>
-  <!-- <card-list class="box" [listName]="'Sanju'"></card-list> -->
+  <ng-container *ngFor="let container of containers">
+    <card-list class="box" [containerInfo]="container" (delete)="onContainerDelete($event)"></card-list>
+  </ng-container>
+
+  <button mat-button (click)="addNewContainer()">
+    <i class="material-icons">
+      add
+    </i>
+  </button>
 </div>

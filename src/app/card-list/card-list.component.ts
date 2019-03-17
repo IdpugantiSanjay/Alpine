@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, ViewContainerRef, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
+
+import * as R from 'ramda';
+import { Container } from '../interfaces/container.interface';
 
 @Component({
   selector: 'card-list',
@@ -10,12 +13,24 @@ export class CardListComponent implements OnInit {
 
   showNewCardField = false;
 
-  @Input('listName') listName: string;
+
+  @Input('containerInfo') containerInfo: Container;
   @Input('cards') cards: Observable<any>; // TODO: Create an card interface
+  @Output("delete") deleteEventEmitter = new EventEmitter<Container>();
+
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    
+  }
+
+
+  public deleteContainer() {
+    this.deleteEventEmitter.emit(this.containerInfo);
   }
 
 }

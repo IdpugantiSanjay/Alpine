@@ -29,8 +29,8 @@
   margin: 1%;
   height: 70%;
   background: whitesmoke;
-  max-width: 25%; /* The Cards Container max width is 25% of the screen */
-  min-width: 350px;
+  max-width: 27%;
+  min-width: 250px;
   /* overflow: auto; */
 }
 
