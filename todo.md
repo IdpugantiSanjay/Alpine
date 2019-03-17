@@ -1,0 +1,1 @@
+- Make cards container fixed width

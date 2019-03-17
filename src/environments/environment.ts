@@ -7,9 +7,9 @@ import { User } from '../app/interfaces/user';
 export const environment = {
   production: false,
 
-  url: 'http://127.0.0.1:5000/api',
+  url: 'http://127.0.0.1:3000/api',
 
-  user: { username: 'sanjay' } as User,
+  user: { username: 'sanjay' } as User
 };
 
 /*
