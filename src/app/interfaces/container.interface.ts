@@ -1,4 +1,4 @@
 export interface Container {
   name: string;
-  id: string | number;
-} 
+  _id: string | number;
+}

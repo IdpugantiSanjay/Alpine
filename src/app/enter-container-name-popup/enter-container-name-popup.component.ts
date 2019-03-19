@@ -7,21 +7,17 @@ import { MatDialogRef } from '@angular/material';
   styleUrls: ['./enter-container-name-popup.component.css']
 })
 export class EnterContainerNamePopupComponent implements OnInit {
-
   containerName: string;
 
-  constructor(public dialogRef: MatDialogRef<EnterContainerNamePopupComponent>) { }
+  constructor(public dialogRef: MatDialogRef<EnterContainerNamePopupComponent>) {}
 
-  ngOnInit() {
-  }
-
+  ngOnInit() {}
 
   onOkButtonClick() {
-    this.dialogRef.close(this.containerName);
+    if (this.containerName) this.dialogRef.close(this.containerName);
   }
 
   onCancelButtonClick() {
     this.dialogRef.close();
   }
-
 }

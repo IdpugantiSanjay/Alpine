@@ -12,14 +12,20 @@ export class ContainerService {
   containerEndpoint: string;
 
   constructor(private userService: UserService, private http: HttpService) {
-    this.containerEndpoint = `${environment.url}/api/${userService.loggedUser.id}/containers`;
+    this.containerEndpoint = `${environment.url}/api/${
+      userService.loggedUser.id
+    }/containers`;
   }
 
-  addContainer(container: Container) {
+  addContainer(container: Partial<Container>) {
     return this.http.postRequest(this.containerEndpoint, container);
   }
 
   getContainers(): Observable<Container[]> {
     return this.http.getRequest(this.containerEndpoint);
+  }
+
+  deleteContainer(containerId: string) {
+    return this.http.deleteRequest(this.containerEndpoint + `/${containerId}`);
   }
 }

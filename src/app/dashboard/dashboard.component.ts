@@ -34,10 +34,16 @@ export class DashboardComponent implements OnInit {
 
   completedTasks: Observable<Task[]>;
 
-  constructor(private taskService: TaskService, public dialog: MatDialog, private containerService: ContainerService) {}
+  constructor(
+    private taskService: TaskService,
+    public dialog: MatDialog,
+    private containerService: ContainerService
+  ) {}
 
   ngOnInit() {
-    this.containerService.getContainers().subscribe(response => (this.containers = response));
+    this.containerService
+      .getContainers()
+      .subscribe(response => (this.containers = response));
 
     this.populate();
 
@@ -85,8 +91,16 @@ export class DashboardComponent implements OnInit {
     this.completedTasks = this.taskService.completedTasks();
   }
 
+  public populateContainers() {
+    this.containerService
+      .getContainers()
+      .subscribe(containers => (this.containers = containers));
+  }
+
   public addNewContainer() {
-    var popupClosedObservable = this.dialog.open(EnterContainerNamePopupComponent).afterClosed();
+    var popupClosedObservable = this.dialog
+      .open(EnterContainerNamePopupComponent)
+      .afterClosed();
 
     popupClosedObservable
       .pipe(
@@ -94,8 +108,10 @@ export class DashboardComponent implements OnInit {
         tap()
       )
       .subscribe((result: string) => {
-        this.containerService.addContainer({ name: result, id: v1() }).subscribe();
-        this.containers.push({ id: v1(), name: result });
+        this.containerService
+          .addContainer({ name: result })
+          .subscribe(() => this.populateContainers());
+        // this.containers.push({ name: result });
       });
 
     function isNotEmpty(containerName: string): boolean {
@@ -104,6 +120,9 @@ export class DashboardComponent implements OnInit {
   }
 
   public onContainerDelete(container: Container) {
-    this.containers = R.without([container], this.containers);
+    this.containerService
+      .deleteContainer(container._id as string)
+      .subscribe(() => this.populateContainers());
+    // this.containers = R.without([container], this.containers);
   }
 }
